@@ -1,0 +1,38 @@
+{
+	"cars": [
+		{
+			"make": "Car Make",
+			"model": "Car Model",
+			"year": 2020,
+			"price": 20000,
+			"vin": "Vehicle Identification Number",
+			"engine": "3.8L V6 OHV 12V TURBO",
+			"transmission": "Transmission Type",
+			"drive": "Drive Type",
+			"mileage": 50000,
+			"exterior": "Exterior Color",
+			"interior": "Interior Color",
+			"fuelEconomy": "Fuel Economy",
+			"features": ["Feature 1", "Feature 2"],
+			"comments": "Any comments here",
+			"img": "/assets/img/vehicles/tm5.png"
+		},
+		{
+			"make": "Another Car Make",
+			"model": "Another Car Model",
+			"year": 2021,
+			"price": 30000,
+			"vin": "Another Vehicle Identification Number",
+			"engine": "3.8L V6 OHV 12V TURBO",
+			"transmission": "Another Transmission Type",
+			"drive": "Another Drive Type",
+			"mileage": 30000,
+			"exterior": "Another Exterior Color",
+			"interior": "Another Interior Color",
+			"fuelEconomy": "Another Fuel Economy",
+			"features": ["Feature 1", "Feature 2"],
+			"comments": "Any other comments here",
+			"img": "/assets/img/vehicles/OIP.jpeg"
+		}
+	]
+}

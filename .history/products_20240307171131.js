@@ -1,0 +1,53 @@
+function loadListings() {
+	const pCont = document.querySelector('#vehCont')
+	console.log('Grabbing JSON...')
+	fetch('cars.json')
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error('HTTP error ' + response.status)
+			}
+			return response.json()
+		})
+		.then((json) => {
+			json.cars.forEach((car) => {
+				const listing = document.createElement('div')
+				console.log(car)
+				listing.className = 'col-md-6 col-lg-4'
+				listing.innerHTML = `
+                    div class="vehicle-box">
+		<div class="vehicle-img">
+			<img
+				decoding="async"
+				src=${car.img}
+				alt=${car.model}
+				title=""
+				style="" />
+			<div class="vehicle-content">
+				<h3 class="vehicle-title">
+					<a href="https://themeholy.com/wordpress/malen/team-members/"
+						>Kevin Martin</a
+					>
+				</h3>
+				<span class="team-desig">${car.price}</span>
+			</div>
+		</div>
+		<div
+			class="th-social background-image"
+			style="
+				background-image: url('https://themeholy.com/wordpress/malen/wp-content/uploads/2023/09/pattern_bg_2-2.png');
+			">
+			<a href="http://facebook.com"><i class="fab fa-facebook-f"></i></a
+			><a href="http://twitter.com"><i class="fab fa-twitter"></i></a
+			><a href="http://instagram.com"><i class="fab fa-instagram"></i></a>
+		</div>
+	</div>
+                `
+				pCont.appendChild(listing) // Moved inside the forEach loop
+			})
+			console.log(json)
+		})
+		.catch(function () {
+			console.log('An error occurred while fetching the JSON file.')
+		})
+}
+loadListings()
