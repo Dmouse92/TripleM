@@ -27782,20 +27782,23 @@ hr.style1 {
 }
 .team-box .team-img {
   position: relative;
+  border-radius: 0.5em;
   overflow: hidden;
 }
 .team-box .team-img img {
   width: 100%;
-  transition: 0.4s ease-in-out;
+  transition: 0.8s ease-in-out;
+  filter: brightness(75%);
+  transition: filter 0.4s ease-in-out;
 }
 .team-box .team-content {
-  background-color: var(--white-color);
+  background-color: #1f2022;
   position: absolute;
   bottom: 0;
   left: var(--space);
   width: calc(100% - var(--space) * 2);
   text-align: center;
-  padding: 30px 15px 30px 15px;
+  padding: 30px 15px;
 }
 .team-box .team-title {
   font-size: 24px;
@@ -27806,7 +27809,7 @@ hr.style1 {
   color: inherit;
 }
 .team-box .team-title a:hover {
-  color: var(--theme-color);
+  color: #353a40;
 }
 .team-box .team-desig {
   color: var(--theme-color);
@@ -27815,24 +27818,71 @@ hr.style1 {
   margin-bottom: -0.5em;
 }
 .team-box .th-social {
-  background-color: var(--title-color);
-  border-top: 1px solid #F0F0F0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 0 0 0.5em 0.5em;
+  border: 0.05em solid #2f3032;
+  background-image: url("https://themeholy.com/wordpress/malen/wp-content/uploads/2023/09/pattern_bg_2-2.png");
+  background-color: #2f3032;
+  border-top: 1px solid #f0f0f0;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
-  padding: 30px 15px 30px 15px;
+  padding: 30px 15px;
   text-align: center;
   width: calc(100% - var(--space) * 2);
   margin-left: var(--space);
   position: relative;
   z-index: 2;
 }
+.team-box .th-social .vehDetListL,
+.team-box .th-social .vehDetListR {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  justify-content: center;
+  width: 50%;
+}
+.team-box .th-social:hover {
+  color: #9ebab5;
+}
+.team-box .th-social:hover .vehDetListItemL,
+.team-box .th-social:hover .vehDetListItemR {
+  color: #9ebab5;
+}
+.team-box .th-social:hover .vehDetListItemL::before,
+.team-box .th-social:hover .vehDetListItemR::before {
+  color: #9ebab5;
+}
+.team-box .th-social .vehDetListItemL,
+.team-box .th-social .vehDetListItemR {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0.5em;
+}
+.team-box .th-social .vehDetListItemL:hover::before,
+.team-box .th-social .vehDetListItemR:hover::before {
+  color: #f6f5f5;
+  transition: 0.4s ease-in-out;
+}
+.team-box .th-social .vehDetTxt {
+  color: #f6f5f5;
+  font-size: 2.5vh;
+  font-weight: 700;
+}
 .team-box .th-social::before {
+  border-radius: 0 0 0.5em 0.5em;
   content: "";
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  background-color: var(--white-color);
+  background-color: #2f3032;
   z-index: -1;
   transition: 0.4s ease-in-out;
 }
@@ -27841,12 +27891,13 @@ hr.style1 {
 }
 .team-box:hover .team-img img {
   transform: scale(1.1);
+  filter: brightness(100%);
 }
 .team-box:hover .th-social:before {
   height: 0;
 }
 .team-box:hover .th-social a {
-  background-color: #252934;
+  background-color: #f00;
   color: var(--white-color);
 }
 .team-box:hover .th-social a:hover {
@@ -27859,6 +27910,94 @@ hr.style1 {
     --space: 20px;
   }
 }
+.vehDetListL,
+.vehDetListR {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.vehDetListL .vehDetListItemL,
+.vehDetListL .vehDetListItemR,
+.vehDetListR .vehDetListItemL,
+.vehDetListR .vehDetListItemR {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.5em;
+}
+.vehDetListL .vehDetListItemL .vehDetTxt,
+.vehDetListL .vehDetListItemR .vehDetTxt,
+.vehDetListR .vehDetListItemL .vehDetTxt,
+.vehDetListR .vehDetListItemR .vehDetTxt {
+  color: #f6f5f5;
+  font-size: 1.5vh;
+  font-weight: 700;
+}
+.vehDetListL .vehDetListItemL.engine::before,
+.vehDetListL .vehDetListItemR.engine::before,
+.vehDetListR .vehDetListItemL.engine::before,
+.vehDetListR .vehDetListItemR.engine::before {
+  content: "\f1b9";
+}
+.vehDetListL .vehDetListItemL.transmission::before,
+.vehDetListL .vehDetListItemR.transmission::before,
+.vehDetListR .vehDetListItemL.transmission::before,
+.vehDetListR .vehDetListItemR.transmission::before {
+  content: "\f085";
+}
+.vehDetListL .vehDetListItemL.drive::before,
+.vehDetListL .vehDetListItemR.drive::before,
+.vehDetListR .vehDetListItemL.drive::before,
+.vehDetListR .vehDetListItemR.drive::before {
+  content: "\f0d1";
+}
+.vehDetListL .vehDetListItemL.mileage::before,
+.vehDetListL .vehDetListItemR.mileage::before,
+.vehDetListR .vehDetListItemL.mileage::before,
+.vehDetListR .vehDetListItemR.mileage::before {
+  content: "\f017";
+}
+.vehDetListL .vehDetListItemL.exterior::before,
+.vehDetListL .vehDetListItemR.exterior::before,
+.vehDetListR .vehDetListItemL.exterior::before,
+.vehDetListR .vehDetListItemR.exterior::before {
+  content: "\f1b9";
+}
+.vehDetListL .vehDetListItemL.interior::before,
+.vehDetListL .vehDetListItemR.interior::before,
+.vehDetListR .vehDetListItemL.interior::before,
+.vehDetListR .vehDetListItemR.interior::before {
+  content: "\f2bb";
+}
+.vehDetListL .vehDetListItemL.fuelEconomy::before,
+.vehDetListL .vehDetListItemR.fuelEconomy::before,
+.vehDetListR .vehDetListItemL.fuelEconomy::before,
+.vehDetListR .vehDetListItemR.fuelEconomy::before {
+  content: "\f0e7";
+}
+.vehDetListL .vehDetListItemL::before,
+.vehDetListL .vehDetListItemR::before,
+.vehDetListR .vehDetListItemL::before,
+.vehDetListR .vehDetListItemR::before {
+  content: "\f042";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 10px;
+}
+
+.vehDetListItemL:hover,
+.vehDetListItemR:hover {
+  color: #9ebab5;
+  transform: scale(1.1);
+  transition: 0.4s ease-in-out;
+}
+.vehDetListItemL:hover::before,
+.vehDetListItemR:hover::before {
+  color: #9ebab5;
+}
+
 /*------------------- Price -------------------*/
 .price-card.style2 {
   background-color: var(--smoke-color);

@@ -1,0 +1,248 @@
+.team-box {
+	--space: 40px;
+
+	.team-img {
+		position: relative;
+		border-radius: 0.5em;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			transition: 0.8s ease-in-out;
+			filter: brightness(75%);
+			transition: filter 0.4s ease-in-out;
+		}
+	}
+
+	.team-content {
+		background-color: #1f2022;
+		position: absolute;
+		bottom: 0;
+		left: var(--space);
+		width: calc(100% - var(--space) * 2);
+		text-align: center;
+		padding: 30px 15px 30px 15px;
+	}
+
+	.team-title {
+		font-size: 24px;
+		margin-bottom: 0;
+		margin-top: -0.24em;
+
+		a {
+			color: inherit;
+
+			&:hover {
+				color: $theme-color;
+			}
+		}
+	}
+
+	.team-desig {
+		color: $theme-color;
+		display: block;
+		font-family: $title-font;
+		margin-bottom: -0.5em;
+	}
+
+	.th-social {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		flex-direction: row;
+		align-items: center;
+		border-radius: 0 0 0.5em 0.5em;
+		border: 0.05em solid #2f3032;
+		background-image: url('https://themeholy.com/wordpress/malen/wp-content/uploads/2023/09/pattern_bg_2-2.png');
+		background-color: #2f3032;
+		border-top: 1px solid #f0f0f0;
+		border-radius: 0 0 0.5em 0.5em;
+		box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+		padding: 30px 15px 30px 15px;
+		text-align: center;
+		width: calc(100% - var(--space) * 2);
+		margin-left: var(--space);
+		position: relative;
+		z-index: 2;
+		.vehDetListL,
+		.vehDetListR {
+			display: flex;
+			flex-direction: column;
+			//list-style-type: none;
+			align-items: flexs;
+			text-align: left;
+			justify-content: center;
+			width: 50%; // added this line to make each list take up half the width of the parent
+		}
+
+		.vehDetListItemL,
+		.vehDetListItemR {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			padding: 0.5em;
+		}
+
+		.vehDetTxt {
+			color: #f6f5f5;
+			font-size: 2.5vh;
+			font-weight: 700;
+		}
+		&::before {
+			border-radius: 0 0 0.5em 0.5em;
+			content: '';
+			@include equal-size(100%);
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: #2f3032;
+			z-index: -1;
+			transition: 0.4s ease-in-out;
+		}
+
+		a {
+			border-radius: 50%;
+		}
+	}
+
+	&:hover {
+		.team-img {
+			img {
+				transform: scale(1.1);
+				filter: brightness(100%);
+			}
+		}
+
+		.th-social {
+			&:before {
+				height: 0;
+			}
+			a {
+				background-color: #f00;
+				color: $white-color;
+
+				&:hover {
+					background-color: $theme-color;
+				}
+			}
+		}
+	}
+}
+
+@include lg {
+	.team-box {
+		--space: 20px;
+	}
+}
+.vehDetListL {
+	display: flex;
+	//list-style-type: none;
+	align-items: center;
+	flex-direction: column;
+	justify-content: flex-start;
+	.vehDetListItemL {
+		flex: 1;
+		display: flex;
+		flex-direction: row;
+		//background-color: #0f0;
+		align-items: center;
+		justify-content: flex-start;
+		padding: 0.25em;
+		&.engine::before {
+			content: '\f1b9'; // Unicode for the engine icon in Font Awesome
+		}
+
+		&.transmission::before {
+			content: '\f085'; // Unicode for the transmission icon in Font Awesome
+		}
+
+		&.drive::before {
+			content: '\f0d1'; // Unicode for the drive icon in Font Awesome
+		}
+
+		&.mileage::before {
+			content: '\f017'; // Unicode for the mileage icon in Font Awesome
+		}
+
+		&.exterior::before {
+			content: '\f1b9'; // Unicode for the exterior icon in Font Awesome
+		}
+
+		&.interior::before {
+			content: '\f2bb'; // Unicode for the interior icon in Font Awesome
+		}
+
+		&.fuelEconomy::before {
+			content: '\f0e7'; // Unicode for the fuel economy icon in Font Awesome
+		}
+
+		&::before {
+			align-items: center;
+			content: '\f042'; // Unicode for the engine icon in Font Awesome
+			font-family: 'Font Awesome 5 Free'; // Font family for Font Awesome
+			font-weight: 900; // Font weight for Font Awesome
+			margin-right: 10px; // Space between the icon and the text
+		}
+
+		.vehDetTxt {
+			color: #f6f5f5;
+			font-size: 1.5vh;
+			font-weight: 700;
+		}
+	}
+}
+.vehDetListR {
+	display: flex;
+	//list-style-type: none;
+	align-items: flex-start;
+	justify-content: flex-start;
+	.vehDetListItemR {
+		.vehDetTxt {
+			color: #f6f5f5;
+			font-size: 1.5vh;
+			font-weight: 700;
+		}
+		flex: 1;
+		display: flex;
+		flex-direction: row;
+		//background-color: #0f0;
+		align-items: center;
+		justify-content: center;
+		justify-content: flex-start;
+		padding: 0.5em;
+		&.engine::before {
+			content: '\f1b9'; // Unicode for the engine icon in Font Awesome
+		}
+
+		&.transmission::before {
+			content: '\f085'; // Unicode for the transmission icon in Font Awesome
+		}
+
+		&.drive::before {
+			content: '\f0d1'; // Unicode for the drive icon in Font Awesome
+		}
+
+		&.mileage::before {
+			content: '\f017'; // Unicode for the mileage icon in Font Awesome
+		}
+
+		&.exterior::before {
+			content: '\f1b9'; // Unicode for the exterior icon in Font Awesome
+		}
+
+		&.interior::before {
+			content: '\f2bb'; // Unicode for the interior icon in Font Awesome
+		}
+
+		&.fuelEconomy::before {
+			content: '\f0e7'; // Unicode for the fuel economy icon in Font Awesome
+		}
+
+		&::before {
+			content: '\f042'; // Unicode for the engine icon in Font Awesome
+			font-family: 'Font Awesome 5 Free'; // Font family for Font Awesome
+			font-weight: 900; // Font weight for Font Awesome
+			margin-right: 10px; // Space between the icon and the text
+		}
+	}
+}

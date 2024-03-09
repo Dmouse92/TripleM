@@ -27724,7 +27724,7 @@ hr.style1 {
   transition: 0.4s ease-in-out;
 }
 .team-box .team-content {
-  background-color: var(--white-color);
+  background-color: #2f2022;
   position: absolute;
   bottom: 0;
   left: var(--space);
@@ -27767,7 +27767,7 @@ hr.style1 {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: var(--white-color);
+  background-color: #1f2022;
   z-index: -1;
   transition: 0.4s ease-in-out;
 }

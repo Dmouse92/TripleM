@@ -1,0 +1,38 @@
+{
+	"cars": [
+		{
+			"make": "Toyota",
+			"model": "Camry",
+			"year": 2020,
+			"price": 25000,
+			"vin": "1HGBH41JXMN109186",
+			"engine": "2.5L I4",
+			"transmission": "Automatic",
+			"drive": "FWD",
+			"mileage": 15000,
+			"exterior": "Silver",
+			"interior": "Black",
+			"fuelEconomy": "28 city / 39 highway",
+			"features": ["Bluetooth", "Backup Camera"],
+			"comments": "Well-maintained, one owner",
+			"img": "/assets/img/vehicle/A_2020_Toyota_Camry_in_silver_color._The_image_sho.png"
+		},
+		{
+			"make": "Honda",
+			"model": "Civic",
+			"year": 2019,
+			"price": 22000,
+			"vin": "2HGES267XMH557414",
+			"engine": "2.0L I4",
+			"transmission": "Manual",
+			"drive": "FWD",
+			"mileage": 20000,
+			"exterior": "Red",
+			"interior": "Gray",
+			"fuelEconomy": "30 city / 38 highway",
+			"features": ["Heated Seats", "Sunroof"],
+			"comments": "Sporty and efficient",
+			"img": "/assets/img/vehicle/A_2019_Honda_Civic_in_red_color._The_image_should_.png"
+		}
+	]
+}
