@@ -1,0 +1,14 @@
+#parent {
+	display: flex;
+	flex-direction: column;
+	padding: 2.5em;
+	align-items: center;
+	height: 100vh;
+	#header {
+		width: 100vw;
+		padding: 2.5em;
+		align-items: center;
+		justify-content: center;
+		border: 2px solid red;
+	}
+}

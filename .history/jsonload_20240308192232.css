@@ -1,0 +1,7 @@
+#parent {
+	display: flex;
+	flex-direction: column;
+	padding: 5em;
+	align-items: center;
+	height: 100vh;
+}

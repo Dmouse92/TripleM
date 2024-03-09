@@ -27998,6 +27998,66 @@ hr.style1 {
   color: #9ebab5;
 }
 
+.progBtn {
+  text-decoration: none;
+  padding: 1em;
+  background-color: #212529;
+  border-radius: 1em;
+  transform: translate(0, 0.75em);
+  transition: 0.4s ease-in-out;
+}
+.progBtn::before {
+  margin-right: 2em;
+}
+.progBtn.addBtn::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f067";
+}
+.progBtn.remBtn::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f068";
+}
+.progBtn.reoBtn::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f0c9";
+}
+.progBtn.edtBtn::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f044";
+}
+.progBtn:hover {
+  color: #9ebab5;
+  transform: translate(0, -0.75em);
+  transition: 0.4s ease-in-out;
+}
+
+.inpForm {
+  color: #1f2022;
+  font-weight: 600;
+}
+.inpForm::before {
+  transform: translate(0, 0.5em);
+  transition: 0.4s ease-in-out;
+}
+.inpForm:hover {
+  transform: scale(1.1);
+  transition: 0.4s ease-in-out;
+}
+.inpForm:focus {
+  color: #1f2022;
+  background-color: #9ebab5;
+  transform: translate(0, -0.5em);
+  transition: 0.4s ease-in-out;
+  -webkit-transform: translate(0, -0.5em);
+  -moz-transform: translate(0, -0.5em);
+  -ms-transform: translate(0, -0.5em);
+  -o-transform: translate(0, -0.5em);
+}
+
 /*------------------- Price -------------------*/
 .price-card.style2 {
   background-color: var(--smoke-color);

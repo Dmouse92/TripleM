@@ -1,0 +1,10 @@
+#parent {
+	display: flex;
+	flex-direction: column;
+	padding: 2.5em;
+	align-items: center;
+	height: 100vh;
+	#header {
+		border: 0px 0px 0px 2px solid red;
+	}
+}

@@ -1,0 +1,58 @@
+#parent {
+	display: flex;
+	flex-direction: column;
+	padding: 2.5em;
+	align-items: center;
+	height: 100vh;
+}
+
+#parent #header {
+	width: 100vw;
+	padding: 2.5em;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+}
+
+#parent #body {
+	display: flex;
+	margin: 1em;
+	background-color: #313539;
+	width: 75vw;
+	height: 50vh;
+	align-items: center;
+	justify-content: center;
+	border-radius: 1vw;
+	-webkit-border-radius: 1vw;
+	-moz-border-radius: 1vw;
+	-ms-border-radius: 1vw;
+	-o-border-radius: 1vw;
+	box-shadow: 0px 6px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+#parent #body #itmList {
+	justify-content: space-between;
+	list-style-type: none;
+	margin: 1em;
+	display: flex;
+	flex-direction: column;
+}
+
+#parent #body #itmList .progBtn {
+	margin: 0.5em;
+	box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.5);
+	font-weight: 600;
+	width: 50vw;
+	text-decoration: none;
+	text-align: left;
+	cursor: pointer;
+	color: #7ebab5;
+}
+.inpLabel {
+	color: #7ebab5;
+	font-weight: 600;
+}
+.inpForm {
+	background-color: #212529;
+}

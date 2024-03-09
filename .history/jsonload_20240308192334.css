@@ -1,0 +1,12 @@
+#parent {
+	display: flex;
+	flex-direction: column;
+	padding: 2.5em;
+	align-items: center;
+	height: 100vh;
+	#header {
+		width: 100vw;
+		padding: 2.5em;
+		border: 2px solid red;
+	}
+}
