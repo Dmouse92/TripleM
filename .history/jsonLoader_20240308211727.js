@@ -104,6 +104,7 @@ let addCont = `
 let remCont = ''
 let reoCont = ''
 let edtCont = ''
+
 /*
  <script>
     const priceInput = document.getElementById('price');

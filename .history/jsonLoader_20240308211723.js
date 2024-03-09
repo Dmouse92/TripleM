@@ -104,6 +104,7 @@ let addCont = `
 let remCont = ''
 let reoCont = ''
 let edtCont = ''
+addCar()
 /*
  <script>
     const priceInput = document.getElementById('price');
