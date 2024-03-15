@@ -17,6 +17,7 @@ Technologies used: HTML CSS JS JQuery SASS Bootstrap NodeJS ExpressJS
     
 - Means of Adding and Managing Vehicles
   * DB: JSON As Storage JS as Interface
+    - Since the ability to purchase cars online was not wanted and the client didn't intend to add/remove/modify listings often, a JSON based DB was the best choice in terms of simplicity and usability, being relatively easy for me to implement, being reliable/efficient, and being easy to debug or view by my client.
   * GUI Interface at website.com/jsonloader.html
     * Add, Remove, Edit, Re-Order Products
       * Add - Add Car/Details, FuelEco and Features as Comma Delim List (City, HWY) (Feature 1, Feature 2), Images upload and visible as sortable (drag and drop) gallery, resized/cropped to 1024x1024 on load
