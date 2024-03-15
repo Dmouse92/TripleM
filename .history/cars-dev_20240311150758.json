@@ -1,0 +1,77 @@
+{
+	"cars": [
+		{
+			"make": "Toyota",
+			"model": "Camry",
+			"year": 2020,
+			"price": 25000,
+			"vin": "1HGBH41JXMN109186",
+			"engine": "2.5L I4",
+			"transmission": "Automatic",
+			"drive": "FWD",
+			"mileage": 15000,
+			"exterior": "Silver",
+			"interior": "Black",
+			"fuelEconomy": "28 city / 39 highway",
+			"features": ["Bluetooth", "Backup Camera"],
+			"comments": "Well-maintained, one owner",
+			"img": ["/assets/img/vehicles/Toyota_Camry.png"]
+		},
+		{
+			"make": "Honda",
+			"model": "Civic",
+			"year": 2024,
+			"price": 12929,
+			"vin": "11111111111111111",
+			"engine": "fr",
+			"transmission": "Automatic",
+			"drive": "FWD",
+			"mileage": 1329,
+			"exterior": "299",
+			"interior": "232",
+			"fuelEconomy": "129",
+			"features": ["292"],
+			"comments": "2323",
+			"img": [
+				"/Users/kooshapari/tm2/assets/img/vehicles/Honda_Civic_11111111111111111/Honda_Civic_11111111111111111_1"
+			]
+		},
+		{
+			"make": "TT",
+			"model": "TT",
+			"year": 2024,
+			"price": 10101,
+			"vin": "11111111111111111",
+			"engine": "111010",
+			"transmission": "Automatic",
+			"drive": "FWD",
+			"mileage": 1010,
+			"exterior": "10101",
+			"interior": "1011010",
+			"fuelEconomy": "10101",
+			"features": "10110",
+			"comments": "1010",
+			"img": []
+		},
+		{
+			"make": "TT",
+			"model": "TT",
+			"year": 2024,
+			"price": 10101,
+			"vin": "11111122221111111",
+			"engine": "111010",
+			"transmission": "Automatic",
+			"drive": "FWD",
+			"mileage": 1010,
+			"exterior": "10101",
+			"interior": "1011010",
+			"fuelEconomy": "10101",
+			"features": "10110",
+			"comments": "1010",
+			"img": [
+				"/Users/kooshapari/tm2/assets/img/vehicles/TT_TT_11111122221111111/TT_TT_11111122221111111_1",
+				"/Users/kooshapari/tm2/assets/img/vehicles/TT_TT_11111122221111111/TT_TT_11111122221111111_2"
+			]
+		}
+	]
+}

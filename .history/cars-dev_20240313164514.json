@@ -1,0 +1,55 @@
+{
+	"cars": [
+		{
+			"make": "Toyota",
+			"model": "Camry",
+			"year": 2020,
+			"price": 25000,
+			"vin": "1HGBH41JXMN109186",
+			"engine": "2.5L I4",
+			"transmission": "Automatic",
+			"drive": "FWD",
+			"mileage": 15000,
+			"exterior": "Silver",
+			"interior": "Black",
+			"fuelEconomy": "28 city / 39 highway",
+			"features": ["Bluetooth", "Backup Camera"],
+			"comments": "Well-maintained, one owner",
+			"img": ["/assets/img/vehicles/Toyota_Camry.png"]
+		},
+		{
+			"make": "Honda",
+			"model": "Civic",
+			"year": 2019,
+			"price": 22000,
+			"vin": "2HGES267XMH557414",
+			"engine": "2.0L I4",
+			"transmission": "Manual",
+			"drive": "FWD",
+			"mileage": 20000,
+			"exterior": "Red",
+			"interior": "Gray",
+			"fuelEconomy": "30 city / 38 highway",
+			"features": ["Heated Seats", "Sunroof"],
+			"comments": "Sporty and efficient",
+			"img": ["/assets/img/vehicles/Honda_Civic.png"]
+		},
+		{
+			"make": "Ford",
+			"model": "F-150",
+			"year": 2021,
+			"price": 40000,
+			"vin": "1FTFW1ET1EKF53769",
+			"engine": "3.5L V6",
+			"transmission": "Automatic",
+			"drive": "4WD",
+			"mileage": 10000,
+			"exterior": "Blue",
+			"interior": "Black",
+			"fuelEconomy": "20 city / 26 highway",
+			"features": ["4x4", "Towing Package"],
+			"comments": "Ready for any adventure",
+			"img": ["/assets/img/vehicles/Ford_F150.png"]
+		}
+	]
+}

@@ -1,0 +1,21 @@
+{
+	"cars": [
+		{
+			"make": "Toyota",
+			"model": "Camry",
+			"year": 2020,
+			"price": 25000,
+			"vin": "1HGBH41JXMN109186",
+			"engine": "2.5L I4",
+			"transmission": "Automatic",
+			"drive": "FWD",
+			"mileage": 15000,
+			"exterior": "Silver",
+			"interior": "Black",
+			"fuelEconomy": "28 city / 39 highway",
+			"features": ["Bluetooth", "Backup Camera"],
+			"comments": "Well-maintained, one owner",
+			"img": ["/assets/img/vehicles/Toyota_Camry.png"]
+		}
+	]
+}

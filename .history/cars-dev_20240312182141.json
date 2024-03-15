@@ -1,0 +1,43 @@
+{
+	"cars": [
+		{
+			"make": "Toyota",
+			"model": "Camry",
+			"year": 2020,
+			"price": 25000,
+			"vin": "1HGBH41JXMN109186",
+			"engine": "2.5L I4",
+			"transmission": "Automatic",
+			"drive": "FWD",
+			"mileage": 15000,
+			"exterior": "Silver",
+			"interior": "Black",
+			"fuelEconomy": "28 city / 39 highway",
+			"features": ["Bluetooth", "Backup Camera"],
+			"comments": "Well-maintained, one owner",
+			"img": ["/assets/img/vehicles/Toyota_Camry.png"]
+		},
+		{
+			"make": "Mitsubishi",
+			"model": "C Class",
+			"year": 2024,
+			"price": 21394,
+			"vin": "3",
+			"engine": "2323232",
+			"transmission": "Automatic",
+			"drive": "FWD",
+			"mileage": 122236,
+			"exterior": "Red",
+			"interior": "Gray",
+			"fuelEconomy": "23 / 23",
+			"features": ["Fle"],
+			"comments": "Flex",
+			"img": [
+				"img/vehicles/Mitsubishi_C Class_3/Mitsubishi_C Class_3_0.png",
+				"img/vehicles/Mitsubishi_C Class_3/Mitsubishi_C Class_3_1.png",
+				"img/vehicles/Mitsubishi_C Class_3/Mitsubishi_C Class_3_2.png",
+				"img/vehicles/Mitsubishi_C Class_3/Mitsubishi_C Class_3_3.png"
+			]
+		}
+	]
+}

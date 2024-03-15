@@ -1,0 +1,41 @@
+{
+	"cars": [
+		{
+			"make": "Toyota",
+			"model": "Camry",
+			"year": 2020,
+			"price": 25000,
+			"vin": "1HGBH41JXMN109186",
+			"engine": "2.5L I4",
+			"transmission": "Automatic",
+			"drive": "FWD",
+			"mileage": 15000,
+			"exterior": "Silver",
+			"interior": "Black",
+			"fuelEconomy": "28 city / 39 highway",
+			"features": ["Bluetooth", "Backup Camera"],
+			"comments": "Well-maintained, one owner",
+			"img": ["/assets/img/vehicles/Toyota_Camry.png"]
+		},
+		{
+			"make": "Nissan",
+			"model": "C Class",
+			"year": 2024,
+			"price": 21394,
+			"vin": "82223",
+			"engine": "2323232",
+			"transmission": "Automatic",
+			"drive": "FWD",
+			"mileage": 233499,
+			"exterior": "Red",
+			"interior": "Gray",
+			"fuelEconomy": "23 / 23",
+			"features": ["Fle"],
+			"comments": "Flex",
+			"img": [
+				"/assets/img/vehicles/Nissan_C Class_82223/Nissan_C Class_82223_0.png",
+				"/assets/img/vehicles/Nissan_C Class_82223/Nissan_C Class_82223_1.png"
+			]
+		}
+	]
+}

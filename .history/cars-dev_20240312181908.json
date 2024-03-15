@@ -1,0 +1,79 @@
+{
+	"cars": [
+		{
+			"make": "Toyota",
+			"model": "Camry",
+			"year": 2020,
+			"price": 25000,
+			"vin": "1HGBH41JXMN109186",
+			"engine": "2.5L I4",
+			"transmission": "Automatic",
+			"drive": "FWD",
+			"mileage": 15000,
+			"exterior": "Silver",
+			"interior": "Black",
+			"fuelEconomy": "28 city / 39 highway",
+			"features": ["Bluetooth", "Backup Camera"],
+			"comments": "Well-maintained, one owner",
+			"img": ["/assets/img/vehicles/Toyota_Camry.png"]
+		},
+		{
+			"make": "Mitsubishi",
+			"model": "C Class",
+			"year": 2024,
+			"price": 21394,
+			"vin": "3",
+			"engine": "2323232",
+			"transmission": "Automatic",
+			"drive": "FWD",
+			"mileage": 122236,
+			"exterior": "Red",
+			"interior": "Gray",
+			"fuelEconomy": "23 / 23",
+			"features": ["Fle"],
+			"comments": "Flex",
+			"img": [
+				{
+					"fieldname": "images",
+					"originalname": "A_2018_Chevrolet_Malibu_in_black_color,_highlighti.png",
+					"encoding": "7bit",
+					"mimetype": "image/png",
+					"destination": "/Users/kooshapari/tm2/assets/img/vehicles/Mitsubishi_C Class_3",
+					"filename": "Mitsubishi_C Class_3_0.png",
+					"path": "/Users/kooshapari/tm2/assets/img/vehicles/Mitsubishi_C Class_3/Mitsubishi_C Class_3_0.png",
+					"size": 282468
+				},
+				{
+					"fieldname": "images",
+					"originalname": "A_2020_BMW_3_Series_in_white_color,_showcasing_its.png",
+					"encoding": "7bit",
+					"mimetype": "image/png",
+					"destination": "/Users/kooshapari/tm2/assets/img/vehicles/Mitsubishi_C Class_3",
+					"filename": "Mitsubishi_C Class_3_1.png",
+					"path": "/Users/kooshapari/tm2/assets/img/vehicles/Mitsubishi_C Class_3/Mitsubishi_C Class_3_1.png",
+					"size": 296668
+				},
+				{
+					"fieldname": "images",
+					"originalname": "A_2019_Honda_Civic_in_red_color._The_image_should_.png",
+					"encoding": "7bit",
+					"mimetype": "image/png",
+					"destination": "/Users/kooshapari/tm2/assets/img/vehicles/Mitsubishi_C Class_3",
+					"filename": "Mitsubishi_C Class_3_2.png",
+					"path": "/Users/kooshapari/tm2/assets/img/vehicles/Mitsubishi_C Class_3/Mitsubishi_C Class_3_2.png",
+					"size": 270064
+				},
+				{
+					"fieldname": "images",
+					"originalname": "A_2020_Lexus_RX_350_in_silver_color,_emphasizing_i.png",
+					"encoding": "7bit",
+					"mimetype": "image/png",
+					"destination": "/Users/kooshapari/tm2/assets/img/vehicles/Mitsubishi_C Class_3",
+					"filename": "Mitsubishi_C Class_3_3.png",
+					"path": "/Users/kooshapari/tm2/assets/img/vehicles/Mitsubishi_C Class_3/Mitsubishi_C Class_3_3.png",
+					"size": 258078
+				}
+			]
+		}
+	]
+}

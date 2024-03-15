@@ -1,0 +1,45 @@
+{
+	"cars": [
+		{
+			"make": "Toyota",
+			"model": "Camry",
+			"year": 2020,
+			"price": 25000,
+			"vin": "1HGBH41JXMN109186",
+			"engine": "2.5L I4",
+			"transmission": "Automatic",
+			"drive": "FWD",
+			"mileage": 15000,
+			"exterior": "Silver",
+			"interior": "Black",
+			"fuelEconomy": "28 city / 39 highway",
+			"features": ["Bluetooth", "Backup Camera"],
+			"comments": "Well-maintained, one owner",
+			"img": ["/assets/img/vehicles/Toyota_Camry.png"]
+		},
+		{
+			"make": "It",
+			"model": "C Class",
+			"year": 2024,
+			"price": 21394,
+			"vin": "22222",
+			"engine": "2323232",
+			"transmission": "Automatic",
+			"drive": "FWD",
+			"mileage": 122229,
+			"exterior": "Red",
+			"interior": "Gray",
+			"fuelEconomy": "23 / 23",
+			"features": ["Fle"],
+			"comments": "Flex",
+			"img": [
+				"assets/img/vehicles/It_C Class_22222/It_C Class_22222_1710200505231-33513553.png",
+				"assets/img/vehicles/It_C Class_22222/It_C Class_22222_1710200505235-282783868.png",
+				"assets/img/vehicles/It_C Class_22222/It_C Class_22222_1710200505238-131325767.png",
+				"assets/img/vehicles/It_C Class_22222/It_C Class_22222_1710200505239-872601833.png",
+				"assets/img/vehicles/It_C Class_22222/It_C Class_22222_1710200505241-906997691.png",
+				"assets/img/vehicles/It_C Class_22222/It_C Class_22222_1710200505242-969636418.png"
+			]
+		}
+	]
+}

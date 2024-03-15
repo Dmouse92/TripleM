@@ -1,0 +1,12 @@
+{
+	"cars": [
+		{
+			"make": "Toyota",
+			"model": "Camry",
+			"vin": "23094823094820938",
+			"images": [
+				"/Users/kooshapari/tm2/assets/img/vehicles/Toyota_Camry_23094823094820938/Toyota_Camry_23094823094820938_1"
+			]
+		}
+	]
+}

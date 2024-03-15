@@ -1,0 +1,33 @@
+{
+	"cars": [
+		{
+			"make": "Toyota",
+			"model": "Camry",
+			"year": "2023",
+			"price": "41039",
+			"vin": "23094823094820938",
+			"engine": "Inline I4",
+			"transmission": "Automatic",
+			"drive": "FWD",
+			"mileage": "13949",
+			"exterior": "Brown",
+			"interior": "Grey",
+			"images": [
+				"/Users/kooshapari/tm2/assets/img/vehicles/Toyota_Camry_23094823094820938/Toyota_Camry_23094823094820938_1",
+				"/Users/kooshapari/tm2/assets/img/vehicles/Toyota_Camry_23094823094820938/Toyota_Camry_23094823094820938_2",
+				"/Users/kooshapari/tm2/assets/img/vehicles/Toyota_Camry_23094823094820938/Toyota_Camry_23094823094820938_3",
+				"/Users/kooshapari/tm2/assets/img/vehicles/Toyota_Camry_23094823094820938/Toyota_Camry_23094823094820938_4",
+				"/Users/kooshapari/tm2/assets/img/vehicles/Toyota_Camry_23094823094820938/Toyota_Camry_23094823094820938_5",
+				"/Users/kooshapari/tm2/assets/img/vehicles/Toyota_Camry_23094823094820938/Toyota_Camry_23094823094820938_6",
+				"/Users/kooshapari/tm2/assets/img/vehicles/Toyota_Camry_23094823094820938/Toyota_Camry_23094823094820938_7",
+				"/Users/kooshapari/tm2/assets/img/vehicles/Toyota_Camry_23094823094820938/Toyota_Camry_23094823094820938_8",
+				"/Users/kooshapari/tm2/assets/img/vehicles/Toyota_Camry_23094823094820938/Toyota_Camry_23094823094820938_9",
+				"/Users/kooshapari/tm2/assets/img/vehicles/Toyota_Camry_23094823094820938/Toyota_Camry_23094823094820938_10",
+				"/Users/kooshapari/tm2/assets/img/vehicles/Toyota_Camry_23094823094820938/Toyota_Camry_23094823094820938_11",
+				"/Users/kooshapari/tm2/assets/img/vehicles/Toyota_Camry_23094823094820938/Toyota_Camry_23094823094820938_12",
+				"/Users/kooshapari/tm2/assets/img/vehicles/Toyota_Camry_23094823094820938/Toyota_Camry_23094823094820938_13",
+				"/Users/kooshapari/tm2/assets/img/vehicles/Toyota_Camry_23094823094820938/Toyota_Camry_23094823094820938_14"
+			]
+		}
+	]
+}

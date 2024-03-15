@@ -1,0 +1,40 @@
+{
+	"cars": [
+		{
+			"make": "",
+			"model": "",
+			"year": "",
+			"price": "",
+			"vin": "",
+			"engine": "",
+			"transmission": "",
+			"drive": "",
+			"mileage": "",
+			"exterior": "",
+			"interior": "",
+			"fuelEconomy": "",
+			"features": "",
+			"comments": "",
+			"images": []
+		},
+		{
+			"make": "Toyota",
+			"model": "Camry",
+			"year": "2024",
+			"price": "21394",
+			"vin": "232323",
+			"engine": "2323232",
+			"transmission": "Automatic",
+			"drive": "FWD",
+			"mileage": "233499",
+			"exterior": "Red",
+			"interior": "Gray",
+			"fuelEconomy": "23 / 23",
+			"features": "Fle",
+			"comments": "Flex",
+			"images": [
+				"/Users/kooshapari/tm2/assets/img/vehicles/Toyota_Camry_232323/Toyota_Camry_232323_1"
+			]
+		}
+	]
+}
