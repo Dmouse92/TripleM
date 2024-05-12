@@ -1,4 +1,4 @@
 {
-
-  "eslint.validate": ["javascript"]
+	"eslint.validate": ["javascript"],
+	"AllAutocomplete.showCurrentDocument": false
 }
