@@ -28041,6 +28041,10 @@ hr.style1 {
   background-color: #9ebab5;
 }
 
+.embla__dot.embla__dot--active {
+  border-color: #7ebab5;
+}
+
 /*------------------- Price -------------------*/
 .price-card.style2 {
   background-color: var(--smoke-color);

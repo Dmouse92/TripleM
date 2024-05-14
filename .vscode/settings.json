@@ -1,4 +1,10 @@
 {
 	"eslint.validate": ["javascript"],
-	"AllAutocomplete.showCurrentDocument": false
+	"AllAutocomplete.showCurrentDocument": false,
+	"emmet.includeLanguages": {
+		"ejs": "html"
+	},
+	"[html]": {
+		"editor.defaultFormatter": "j69.ejs-beautify"
+	}
 }
