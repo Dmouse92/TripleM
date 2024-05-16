@@ -1,6 +1,6 @@
 {
 	"eslint.validate": ["javascript"],
-	"AllAutocomplete.showCurrentDocument": false,
+	"AllAutocomplete.showCurrentDocument": true,
 	"emmet.includeLanguages": {
 		"ejs": "html"
 	},
