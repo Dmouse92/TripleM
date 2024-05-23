@@ -1,1 +1,9 @@
 assets.zip
+.vercel
+TripleM.7z
+.trunk
+.history
+.vscode
+.eslintrc
+node_modules
+uploads

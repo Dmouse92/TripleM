@@ -1,0 +1,103 @@
+<div class="team-about">
+  <div class="InfoCont " style="border: 2px solid red;">
+    <h2 id="VehMakeModelYr" class="team-about_title">
+      <%= year %> <%= make %> <%= model %>
+    </h2>
+    <p id="vehPrice" class="team-about_desig">$<%= price %></p>
+    <!-- <p id="vehDesc" class="team-about_text"><%= comments %></p> -->
+  </div>
+  <div class="about-info-wrap" style="border: 2px solid green;">
+    <div class="about-info">
+      <div class="about-info_icon"><i class="fas"><img src='/assets/fonts/fontawesome/eng.png' style="padding: 0.75em" alt="engine icon" /></i></div>
+      <div class="about-info_content">
+        <p class="about-info_subtitle">Engine</p>
+        <h6 class="about-info_title"><%=engine%></h6>
+      </div>
+    </div>
+    <div class="about-info">
+      <div class="about-info_icon"><i class="fas fa-cogs"></i></div>
+      <div class="about-info_content">
+        <p class="about-info_subtitle">Transmission</p>
+        <h6 class="about-info_title"><%=transmission%></h6>
+      </div>
+    </div>
+
+    <div class="about-info">
+      <div class="about-info_icon"><i class="fa-solid fa-truck-monster"></i></div>
+      <div class="about-info_content">
+        <p class="about-info_subtitle">Drive Type</p>
+        <h6 class="about-info_title"><%=drive%></h6>
+      </div>
+    </div>
+    <div class="about-info">
+      <div class="about-info_icon"><i class="fas fa-barcode"></i></div>
+      <div class="about-info_content">
+        <p class="about-info_subtitle">VIN</p>
+        <h6 class="about-info_title"><a href="tel:+2568145632"><%=vin%></a></h6>
+      </div>
+    </div>
+    <div class="about-info">
+      <div class="about-info_icon"><i class="fas fa-tachometer-alt"></i></div>
+      <div class="about-info_content">
+        <p class="about-info_subtitle">Mileage</p>
+
+        <h6 class="about-info_title"><%= mileage %> Miles</h6>
+      </div>
+    </div>
+
+    <div class="about-info">
+      <div class="about-info_icon"><i class="fas fa-car-side"></i></div>
+      <div class="about-info_content">
+        <p class="about-info_subtitle">Exterior</p>
+        <h6 class="about-info_title"><%=exterior%></h6>
+      </div>
+    </div>
+    <div class="about-info">
+      <div class="about-info_icon"><i class="fas"><img src='/assets/fonts/fontawesome/int.png' style="padding: 0.75em" alt="interior icon" /></i></div>
+      <div class="about-info_content">
+        <p class="about-info_subtitle">Interior</p>
+        <h6 class="about-info_title"><%=interior%></h6>
+      </div>
+    </div>
+    <div class="about-info">
+      <div class="about-info_icon"><i class="fas fa-gas-pump"></i></div>
+      <div class="about-info_content">
+        <p class="about-info_subtitle">Fuel Economy</p>
+        <% const fuECO = fuelEconomy.split(','); %>
+        <h6 class="about-info_title">City: <%= fuECO[0] %> MPG </h6>
+        <h6 class="about-info_title">Highway: <%= fuECO[1] %> MPG </h6>
+      </div>
+    </div>
+
+  </div>
+  <div class="contact-Cont about-info-wrap" style="border: 2px solid red">
+    <div class="about-info">
+      <div class="about-info_icon"><i class="fas fa-phone"></i></div>
+      <div class="about-info_content">
+        <p class="about-info_subtitle">Phone</p>
+        <h6 class="about-info_title">
+          <a href="tel:+2562145821456">+(256) 21458-21456</a>
+        </h6>
+      </div>
+    </div>
+    <div class="about-info stly">
+      <div class="about-info_icon"><i class="fas fa-envelope"></i></div>
+      <div class="about-info_content">
+        <p class="about-info_subtitle">Email</p>
+        <h6 class="about-info_title">
+          <a href="mailto:info@mechon.com">info@mechon.com</a>
+        </h6>
+      </div>
+    </div>
+
+    <div class="about-info">
+      <div class="about-info_icon"><i class="fas fa-map-marker-alt"></i></div>
+      <div class="about-info_content">
+        <p class="about-info_subtitle">Address</p>
+        <h6 class="about-info_title"><a href="tel:+2568145632">+2568145632</a></h6>
+      </div>
+    </div>
+
+    <a href="contact.html" class="th-btn">Get In Touch</a>
+  </div>
+</div>
