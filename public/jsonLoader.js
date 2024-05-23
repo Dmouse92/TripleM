@@ -125,7 +125,6 @@ function initializeFormEventListeners() {
 
 	// Initialize form submission
 	document.getElementById('addForm').addEventListener('submit', handleFormASubmit)
-	document.getElementById('remForm').addEventListener('submit', handleFormRSubmit)
 }
 
 // Form submission handler
