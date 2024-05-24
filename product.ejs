@@ -14,24 +14,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   <!-- Favicons - Place favicon.ico in the root directory -->
-  <link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicons/apple-icon-57x57.png" />
-  <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicons/apple-icon-60x60.png" />
-  <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicons/apple-icon-72x72.png" />
-  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicons/apple-icon-76x76.png" />
-  <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicons/apple-icon-114x114.png" />
-  <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicons/apple-icon-120x120.png" />
-  <link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicons/apple-icon-144x144.png" />
-  <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicons/apple-icon-152x152.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-icon-180x180.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicons/android-icon-192x192.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicons/favicon-96x96.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicons/apple-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicons/apple-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicons/apple-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicons/apple-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicons/apple-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicons/apple-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicons/apple-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicons/apple-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-icon-180x180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/android-icon-192x192.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicons/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png" />
   <link rel="manifest" href="/assets/img/favicons/manifest.json" />
   <meta name="msapplication-TileColor" content="#ffffff" />
-  <meta name="msapplication-TileImage" content="assets/img/favicons/ms-icon-144x144.png" />
+  <meta name="msapplication-TileImage" content="/assets/img/favicons/ms-icon-144x144.png" />
   <meta name="theme-color" content="#ffffff" />
-  <script src="/productDetLoad.js"></script>
+
   <!--==============================
         Google Fonts
         ============================== -->
@@ -257,7 +257,7 @@ Team Area
                 <div class="embla__container">
                   <% for (let i = 0; i < imgCnt; i++) { %>
                   <div class="embla__slide ">
-                    <img src="/assets/img/vehicles/<%= make %>_<%= model %>_<%= vin %>/<%= make %>_<%= model %>_<%= vin %>_<%= i %>.jpg" class="embla__slide__img " alt="Vehicle Image <%= i %>">
+                    <img src="<%= imgs[i] %>" class=" embla__slide__img " alt=" Vehicle Image <%= i %>">
                   </div>
                   <% } %>
                 </div>
@@ -270,7 +270,7 @@ Team Area
                     <!-- Loop to create carousel slides -->
                     <div class="embla-thumbs__slide">
                       <button type="button" class="embla-thumbs__slide__number">
-                        <img src="/assets/img/vehicles/<%= make %>_<%= model %>_<%= vin %>/<%= make %>_<%= model %>_<%= vin %>_<%= i %>.jpg" class="embla__slide__img" alt="Vehicle Image <%= i %>">
+                        <img src="<%= imgs[i] %>" class="embla__slide__img" alt="Vehicle Image <%= i %>">
                       </button>
                     </div>
                     <% } %>
@@ -545,27 +545,27 @@ Team Area
               <div class="sidebar-gallery">
                 <div class="gallery-thumb">
                   <img src="/assets/img/widget/gallery_1_1.jpg" alt="Gallery Image" />
-                  <a href="assets/img/widget/gallery_1_1.jpg" class="gallery-btn popup-image"><i class="fab fa-instagram"></i></a>
+                  <a href="/assets/img/widget/gallery_1_1.jpg" class="gallery-btn popup-image"><i class="fab fa-instagram"></i></a>
                 </div>
                 <div class="gallery-thumb">
                   <img src="/assets/img/widget/gallery_1_2.jpg" alt="Gallery Image" />
-                  <a href="assets/img/widget/gallery_1_2.jpg" class="gallery-btn popup-image"><i class="fab fa-instagram"></i></a>
+                  <a href="/assets/img/widget/gallery_1_2.jpg" class="gallery-btn popup-image"><i class="fab fa-instagram"></i></a>
                 </div>
                 <div class="gallery-thumb">
                   <img src="/assets/img/widget/gallery_1_3.jpg" alt="Gallery Image" />
-                  <a href="assets/img/widget/gallery_1_3.jpg" class="gallery-btn popup-image"><i class="fab fa-instagram"></i></a>
+                  <a href="/assets/img/widget/gallery_1_3.jpg" class="gallery-btn popup-image"><i class="fab fa-instagram"></i></a>
                 </div>
                 <div class="gallery-thumb">
                   <img src="/assets/img/widget/gallery_1_4.jpg" alt="Gallery Image" />
-                  <a href="assets/img/widget/gallery_1_4.jpg" class="gallery-btn popup-image"><i class="fab fa-instagram"></i></a>
+                  <a href="/assets/img/widget/gallery_1_4.jpg" class="gallery-btn popup-image"><i class="fab fa-instagram"></i></a>
                 </div>
                 <div class="gallery-thumb">
                   <img src="/assets/img/widget/gallery_1_5.jpg" alt="Gallery Image" />
-                  <a href="assets/img/widget/gallery_1_5.jpg" class="gallery-btn popup-image"><i class="fab fa-instagram"></i></a>
+                  <a href="/assets/img/widget/gallery_1_5.jpg" class="gallery-btn popup-image"><i class="fab fa-instagram"></i></a>
                 </div>
                 <div class="gallery-thumb">
                   <img src="/assets/img/widget/gallery_1_6.jpg" alt="Gallery Image" />
-                  <a href="assets/img/widget/gallery_1_6.jpg" class="gallery-btn popup-image"><i class="fab fa-instagram"></i></a>
+                  <a href="/assets/img/widget/gallery_1_6.jpg" class="gallery-btn popup-image"><i class="fab fa-instagram"></i></a>
                 </div>
               </div>
             </div>
@@ -648,9 +648,8 @@ Team Area
   <script src="/assets/js/wow.min.js"></script>
   <!-- Main Js File -->
   <script src="/assets/js/main.js"></script>
-  <script src="/productDetLoad.js"></script>
-  <script type="module" src="/listings.js"></script>
-
+  <script src="/assets/js/productDetLoad.js"></script>
+  <script type="module" src="/assets/js/listings.js"></script>
 </body>
 
 </html>

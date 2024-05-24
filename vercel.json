@@ -1,5 +1,14 @@
 {
-	"version": 2,
-	"builds": [{ "src": "tmexpress.js", "use": "@vercel/node" }],
-	"routes": [{ "src": "/(.*)", "dest": "tmexpress.js" }]
+	"builds": [
+		{
+			"src": "tmexpress.js",
+			"use": "@vercel/node"
+		}
+	],
+	"routes": [
+		{
+			"src": "/(.*)",
+			"dest": "/tmexpress.js"
+		}
+	]
 }

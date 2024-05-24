@@ -72,7 +72,7 @@ app.use('/jsonloader', jsonloaderRouter)
 app.use('/vehicles', vehiclesRouter)
 
 app.set('view engine', 'ejs')
-app.set('views', './')
+app.set('views', './public')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(
@@ -305,7 +305,16 @@ app.get('/cars/:make/:model/:vin', (req, res) => {
 		}
 	)
 })
-app.use(express.static('public'))
+app.use(
+	express.static('public', {
+		setHeaders: (res, path) => {
+			if (path.endsWith('.js')) {
+				res.set('Content-Type', 'application/javascr ipt')
+			}
+		},
+	})
+)
+
 // serve static files from the assets directory
 app.use(express.static('assets'))
 
