@@ -257,7 +257,7 @@ Team Area
                 <div class="embla__container">
                   <% for (let i = 0; i < imgCnt; i++) { %>
                   <div class="embla__slide ">
-                    <img src="/assets/img/vehicles/<%= make %>_<%= model %>_<%= vin %>/<%= make %>_<%= model %>_<%= vin %>_<%= i %>.jpg" class="embla__slide__img " alt="Vehicle Image <%= i %>">
+                    <img src="<%= imgs[i] %>" class="embla__slide__img " alt="Vehicle Image <%= i %>">
                   </div>
                   <% } %>
                 </div>
@@ -270,7 +270,7 @@ Team Area
                     <!-- Loop to create carousel slides -->
                     <div class="embla-thumbs__slide">
                       <button type="button" class="embla-thumbs__slide__number">
-                        <img src="/assets/img/vehicles/<%= make %>_<%= model %>_<%= vin %>/<%= make %>_<%= model %>_<%= vin %>_<%= i %>.jpg" class="embla__slide__img" alt="Vehicle Image <%= i %>">
+                        <img src="<%= imgs[i] %>" class="embla__slide__img" alt="Vehicle Image <%= i %>">
                       </button>
                     </div>
                     <% } %>
@@ -648,8 +648,8 @@ Team Area
   <script src="/assets/js/wow.min.js"></script>
   <!-- Main Js File -->
   <script src="/assets/js/main.js"></script>
-  <script src="./assets/js/productDetLoad.js"></script>
-  <script type="module" src="./assets/js/listings.js"></script>
+  <script src="/public/assets/js/productDetLoad.js"></script>
+  <script  type="module"  src="/public/assets/js/listings.js"></script>
 </body>
 
 </html>

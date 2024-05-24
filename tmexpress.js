@@ -309,7 +309,17 @@ app.use(
 	express.static('public', {
 		setHeaders: (res, path) => {
 			if (path.endsWith('.js')) {
-				res.set('Content-Type', 'application/javascr ipt')
+				res.set('Content-Type', 'application/javascript')
+			}
+		},
+	})
+)
+app.use(
+	'/public/assets/js',
+	express.static(path.join(__dirname, 'public/assets/js'), {
+		setHeaders: (res, path, stat) => {
+			if (path.endsWith('.js')) {
+				res.set('Content-Type', 'application/javascript')
 			}
 		},
 	})
