@@ -1,14 +1,18 @@
 {
 	"builds": [
 		{
-			"src": "tmexpress.js",
+			"src": "tmexpress.cjs",
 			"use": "@vercel/node"
+		},
+		{
+			"src": "public/assets/js/listings.js",
+			"use": "@vercel/static"
 		}
 	],
 	"routes": [
 		{
 			"src": "/(.*)",
-			"dest": "/tmexpress.js"
+			"dest": "/tmexpress.cjs"
 		}
 	]
 }

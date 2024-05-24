@@ -5,7 +5,7 @@
 	"main": "jsonLoader.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "node tmexpress.js"
+		"start": "node tmexpress.cjs"
 	},
 	"keywords": [],
 	"author": "",
@@ -34,5 +34,6 @@
 	},
 	"devDependencies": {
 		"@vercel/ncc": "^0.38.1"
-	}
+	},
+	"type": "module"
 }

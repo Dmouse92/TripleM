@@ -20,9 +20,9 @@ const storage = multer.diskStorage({
 	},
 })
 // Routes
-const indexRouter = require('./routes/index')
-const jsonloaderRouter = require('./routes/jsonload')
-const vehiclesRouter = require('./routes/vehicles')
+const indexRouter = require('./routes/index.cjs')
+const jsonloaderRouter = require('./routes/jsonload.cjs')
+const vehiclesRouter = require('./routes/vehicles.cjs')
 
 function scheduleFileDeletion(filePath, delay = 5000) {
 	console.log(`Scheduling deletion for ${filePath} after ${delay}ms`)
