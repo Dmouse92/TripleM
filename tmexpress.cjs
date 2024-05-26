@@ -21,8 +21,11 @@ const storage = multer.diskStorage({
 })
 // Routes
 const indexRouter = require('./routes/index.cjs')
-const jsonloaderRouter = require('./routes/jsonload.cjs')
+const adminRouter = require('./routes/jsonload.cjs')
 const vehiclesRouter = require('./routes/vehicles.cjs')
+const importRouter = require('./routes/import.cjs')
+const aboutRouter = require('./routes/about.cjs')
+const contactRouter = require('./routes/contact.cjs')
 
 function scheduleFileDeletion(filePath, delay = 5000) {
 	console.log(`Scheduling deletion for ${filePath} after ${delay}ms`)
@@ -67,10 +70,35 @@ db.exec(
 	}
 )
 // Use routes
-app.use('/', indexRouter)
-app.use('/jsonloader', jsonloaderRouter)
-app.use('/vehicles', vehiclesRouter)
+app.use('/', (req, res, next) => {
+	//	console.log('Handling request for /')
+	indexRouter(req, res, next)
+})
 
+app.use('/admin', (req, res, next) => {
+	//console.log('Handling request for /admin')
+	adminRouter(req, res, next)
+})
+
+app.use('/vehicles', (req, res, next) => {
+	//	console.log('Handling request for /vehicles')
+	vehiclesRouter(req, res, next)
+})
+// Use routes
+app.use('/import', (req, res, next) => {
+	//	console.log('Handling request for /')
+	importRouter(req, res, next)
+})
+
+app.use('/contact', (req, res, next) => {
+	//console.log('Handling request for /admin')
+	contactRouter(req, res, next)
+})
+
+app.use('/about', (req, res, next) => {
+	//	console.log('Handling request for /vehicles')
+	aboutRouter(req, res, next)
+})
 app.set('view engine', 'ejs')
 app.set('views', './public')
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -84,7 +112,7 @@ app.use(
 )
 // Set the view engine to EJS
 // Static files
-app.use(express.static(path.join(__dirname, 'public')))
+//app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use((req, res, next) => {
@@ -314,19 +342,6 @@ app.use(
 		},
 	})
 )
-app.use(
-	'/public/assets/js',
-	express.static(path.join(__dirname, 'public/assets/js'), {
-		setHeaders: (res, path, stat) => {
-			if (path.endsWith('.js')) {
-				res.set('Content-Type', 'application/javascript')
-			}
-		},
-	})
-)
-
-// serve static files from the assets directory
-app.use(express.static('assets'))
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))

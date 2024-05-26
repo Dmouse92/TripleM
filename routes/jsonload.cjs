@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-router.get('/jsonloader', (req, res) => {
+router.get('/', (req, res) => {
 	console.log('Request for jsonloader.html received')
 	res.sendFile('jsonloader.html', { root: 'public' }, (err) => {
 		if (err) {
@@ -10,5 +10,4 @@ router.get('/jsonloader', (req, res) => {
 		}
 	})
 })
-
 module.exports = router
