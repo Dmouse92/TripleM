@@ -334,15 +334,11 @@ app.get('/cars/:make/:model/:vin', (req, res) => {
 	)
 })
 app.use(
-	express.static(path.join(__dirname, 'public'), {
+	express.static('public', {
 		setHeaders: (res, path) => {
 			if (path.endsWith('.js')) {
 				res.set('Content-Type', 'application/javascript')
-			} else if (path.endsWith('.css')) {
-				res.set('Content-Type', 'text/css')
-			} else if (path.endsWith('.svg')) {
-				res.set('Content-Type', 'image/svg+xml')
-			} // Add more MIME types as necessary
+			}
 		},
 	})
 )

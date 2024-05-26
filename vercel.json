@@ -5,16 +5,11 @@
 			"use": "@vercel/node"
 		},
 		{
-			"src": "public/assets/js/listings.js",
+			"src": "public/assets/**",
 			"use": "@vercel/static"
 		}
 	],
 	"routes": [
-		{ "src": "/import", "dest": "/routes/importRoute.cjs" },
-		{ "src": "/cars", "dest": "/routes/carsRoute.cjs" },
-		{ "src": "/admin", "dest": "/routes/adminRoute.cjs" },
-		{ "src": "/about", "dest": "/routes/aboutRoute.cjs" },
-		{ "src": "/contact", "dest": "/routes/contactRoute.cjs" },
 		{
 			"src": "/(.*)",
 			"dest": "/tmexpress.cjs"
