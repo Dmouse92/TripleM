@@ -7,10 +7,12 @@ const cors = require('cors')
 const fsExtra = require('fs-extra')
 const app = express()
 const util = require('util')
+const basicAuth = require('basic-auth')
 const pendingDeletions = []
 const bodyParser = require('body-parser')
 const setTimeoutPromise = util.promisify(setTimeout)
 const sqlite3 = require('sqlite3').verbose()
+const nodemailer = require('nodemailer')
 const storage = multer.diskStorage({
 	destination: function (req, file, cb) {
 		cb(null, path.join(__dirname, '/temp/')) // Temporary storage for processing
@@ -19,6 +21,22 @@ const storage = multer.diskStorage({
 		cb(null, file.originalname) // Maintain original file name during processing
 	},
 })
+
+// Middleware to protect a route with basic auth
+const authMiddleware = (req, res, next) => {
+	const user = basicAuth(req)
+
+	// Replace with your own username and password
+	const username = 'Mousa'
+	const password = 'TripleM'
+
+	if (!user || user.name !== username || user.pass !== password) {
+		res.set('WWW-Authenticate', 'Basic realm="example"')
+		return res.status(401).send('Access denied')
+	}
+
+	next()
+}
 // Routes
 const indexRouter = require('./routes/index.cjs')
 const adminRouter = require('./routes/jsonload.cjs')
@@ -75,7 +93,7 @@ app.use('/', (req, res, next) => {
 	indexRouter(req, res, next)
 })
 
-app.use('/admin', (req, res, next) => {
+app.use('/admin', authMiddleware, (req, res, next) => {
 	//console.log('Handling request for /admin')
 	adminRouter(req, res, next)
 })
@@ -333,6 +351,38 @@ app.get('/cars/:make/:model/:vin', (req, res) => {
 		}
 	)
 })
+// Handle form submission
+app.post('/send-email', (req, res) => {
+    const { name, email, subject, message } = req.body;
+
+    // Create a transporter object using SMTP transport
+    const transporter = nodemailer.createTransport({
+        host: 'smtp.yourdomain.com', // Replace with your SMTP server
+        port: 587, // Replace with your SMTP port
+        secure: false, // true for 465, false for other ports
+        auth: {
+            user: 'your-email@yourdomain.com', // Replace with your email
+            pass: 'your-email-password' // Replace with your email password
+        }
+    });
+
+    // Email options
+    const mailOptions = {
+        from: `"${name}" <${email}>`, // Sender address
+        to: 'virtual-email@yourdomain.com', // List of receivers
+        subject: subject, // Subject line
+        text: message, // Plain text body
+        html: `<p>${message}</p>` // HTML body
+    };
+
+    // Send email
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return res.status(500).send('Error sending email: ' + error.message);
+        }
+        res.status(200).send('Email sent: ' + info.response);
+    });
+});
 app.use(
 	express.static(path.join(__dirname, 'public'), {
 		setHeaders: (res, path) => {

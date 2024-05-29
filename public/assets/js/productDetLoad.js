@@ -8,7 +8,7 @@ function fetchProductDetails(make, model, vin) {
 	const vehDesc = document.getElementById('vehDesc')
 	console.log('MID: ', make, model, vin)
 	// Use template literals to construct the URL with the make, model, and vin
-	const url = `https://tm.kooshapari.com/cars/${encodeURIComponent(make)}/${encodeURIComponent(
+	const url = `/cars/${encodeURIComponent(make)}/${encodeURIComponent(
 		model
 	)}/${encodeURIComponent(vin)}`
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" class="no-js" lang="zxx">
+<html dir="ltr" class="no-js" lang="en">
 
 <head>
   <meta charset="utf-8" />
@@ -309,8 +309,8 @@ Team Area
           <div class="team-about">
             <!-- Car Details Section -->
             <div class="info-cont car-details-section">
-              <h2 id="VehMakeModelYr" class="team-about_title">2020 BMW 3 Series</h2>
-              <p id="vehPrice" class="team-about_desig">$35000</p>
+              <h2 id="VehMakeModelYr" class="team-about_title"><%=year%> <%=make%> <%=model%></h2>
+              <p id="vehPrice" class="team-about_desig"><%=price%></p>
             </div>
 
             <!-- Specifications Section -->
@@ -321,7 +321,7 @@ Team Area
                 </div>
                 <div class="about-info_content">
                   <p class="about-info_subtitle">Engine</p>
-                  <h6 class="about-info_title">3.0L I6</h6>
+                  <h6 class="about-info_title"><%=engine%></h6>
                 </div>
               </div>
               <div class="about-info">
@@ -330,7 +330,7 @@ Team Area
                 </div>
                 <div class="about-info_content">
                   <p class="about-info_subtitle">VIN</p>
-                  <h6 class="about-info_title"><a href="tel:+2568145632">VIN12345</a></h6>
+                  <h6 class="about-info_title"><%=vin%></h6>
                 </div>
               </div>
               <div class="about-info">
@@ -339,7 +339,7 @@ Team Area
                 </div>
                 <div class="about-info_content">
                   <p class="about-info_subtitle">Transmission</p>
-                  <h6 class="about-info_title">Automatic</h6>
+                  <h6 class="about-info_title"><%=transmission%></h6>
                 </div>
               </div>
               <div class="about-info">
@@ -348,7 +348,7 @@ Team Area
                 </div>
                 <div class="about-info_content">
                   <p class="about-info_subtitle">Drive Type</p>
-                  <h6 class="about-info_title">RWD</h6>
+                  <h6 class="about-info_title"><%=drive%></h6>
                 </div>
               </div>
 
@@ -359,7 +359,7 @@ Team Area
                 </div>
                 <div class="about-info_content">
                   <p class="about-info_subtitle">Exterior</p>
-                  <h6 class="about-info_title">Black</h6>
+                  <h6 class="about-info_title"><%=exterior%></h6>
                 </div>
               </div>
               <div class="about-info">
@@ -368,7 +368,10 @@ Team Area
                 </div>
                 <div class="about-info_content">
                   <p class="about-info_subtitle">Interior</p>
-                  <h6 class="about-info_title">Leather Black</h6>
+                    <% let interiorProc = interior.trim().split(','); %>
+                    <h6 class="about-info_title"><%=interiorProc[0]%></h6>
+                    <h6 class="about-info_title"><%=interiorProc[1]%></h6>
+
                 </div>
               </div>
               <div class="about-info">
@@ -377,7 +380,7 @@ Team Area
                 </div>
                 <div class="about-info_content">
                   <p class="about-info_subtitle">Mileage</p>
-                  <h6 class="about-info_title">5000 Miles</h6>
+                  <h6 class="about-info_title"><%=mileage%> Miles</h6>
                 </div>
               </div>
               <div class="about-info">
@@ -385,9 +388,10 @@ Team Area
                   <i class="fas fa-gas-pump"></i>
                 </div>
                 <div class="about-info_content">
+                  <% let fEco = fuelEconomy.split(',') ;%>
                   <p class="about-info_subtitle">Fuel Economy</p>
-                  <h6 class="about-info_title">City: 28 MPG</h6>
-                  <h6 class="about-info_title">Highway: 32 MPG</h6>
+                  <h6 class="about-info_title">City: <%=fEco[0]%> MPG</h6>
+                  <h6 class="about-info_title">Hwy: <%=fEco[1]%> MPG</h6>
                 </div>
               </div>
             </div>

@@ -2,7 +2,7 @@ function loadListings() {
 	//const pCont = document.querySelector('#vehCont')
 
 	console.log('Grabbing listings from the database...')
-	fetch(`https://tm.kooshapari.com/listings`) // Assuming you have an endpoint '/api/listings' set up on your server
+	fetch(`/listings`) // Assuming you have an endpoint '/api/listings' set up on your server
 		.then((response) => {
 			if (!response.ok) {
 				throw new Error('Network response was not ok ' + response.statusText)
@@ -15,6 +15,8 @@ function loadListings() {
 			listings.forEach((car) => {
 				const listing = document.createElement('div')
 				const imageFileName = `${car.make}_${car.model}_${car.vin}`
+				const iList = car.interior.trim().split(',')
+				const fList = car.fuelEconomy.split(',')
 				listing.dataset.make = car.make
 				listing.dataset.model = car.model
 				listing.dataset.vin = car.vin
@@ -72,10 +74,12 @@ function loadListings() {
 								${car.exterior}
 							</li>
 							<li class="vehDetListItemL interior vehDetTxt">
-								${car.interior}
+								${iList[0]}<br>
+								${iList[1]}
 							</li>
 							<li class="vehDetListItemL fuelEconomy vehDetTxt">
-								${car.fuelEconomy}
+								City: ${fList[0]}<br>
+								Hwy: ${fList[1]}
 							</li>
 						</ul>
 					</div>
