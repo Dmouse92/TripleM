@@ -3,6 +3,11 @@
 		{
 			"src": "tmexpress.cjs",
 			"use": "@vercel/node"
+			      "config": {
+        "includeFiles": [
+          "node_modules/sqlite3/**"
+        ]
+      }
 		},
 		{
 			"src": "public/assets/**",
@@ -14,5 +19,13 @@
 			"src": "/(.*)",
 			"dest": "/tmexpress.cjs"
 		}
-	]
+	],
+	"build": {
+    "env": {
+      "VERCEL_CACHE": "false"
+    },
+    "commands": {
+      "build": "npm install && npm rebuild sqlite3 --build-from-source"
+    }
+  }
 }
