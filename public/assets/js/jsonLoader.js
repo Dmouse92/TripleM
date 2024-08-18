@@ -155,7 +155,7 @@ function handleFormASubmit(e) {
 	console.log('Finished appending images to FormData') // Log after appending images
 	console.log('FormData image array:', formData.getAll('images'))
 	// Fetch request to the server
-	fetch('http://localhost:3000/upload', {
+	fetch('/upload', {
 		method: 'POST',
 		body: formData,
 	})
