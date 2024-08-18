@@ -5,7 +5,9 @@
 	"main": "jsonLoader.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "node tmexpress.cjs"
+		 "postinstall": "npm rebuild sqlite3 --build-from-source",
+		"start": "node tmexpress.cjs",
+		
 	},
 	"keywords": [],
 	"author": "",
