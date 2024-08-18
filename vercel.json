@@ -20,8 +20,6 @@
     "env": {
       "VERCEL_CACHE": "false"
     },
-    "commands": {
-      "build": "npm install && npm rebuild sqlite3 --build-from-source"
-    }
+   
   }
 }
