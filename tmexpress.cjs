@@ -90,6 +90,7 @@ app.use(
 		//allowedHeaders: ['Content-Type', 'Authorization'], // Add other headers as per your requirements
 	})
 )
+app.options('*', cors()) 
 // Set the view engine to EJS
 // Static files
 //app.use(express.static(path.join(__dirname, 'public')))
