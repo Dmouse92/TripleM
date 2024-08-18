@@ -12,7 +12,9 @@ function loadListings() {
 		.then((data) => {
 			const listings = data.cars // Access the cars team from the response
 			const pCont = document.querySelector('#vehCont')
+			console.log("listings: ", listings);
 			listings.forEach((car) => {
+				console.log('Loading Car:  ', car.year, ' ', car.make, ' ', car.model)
 				const listing = document.createElement('div')
 				const imageFileName = `${car.make}_${car.model}_${car.vin}`
 				const iList = car.interior.trim().split(',')
@@ -21,7 +23,7 @@ function loadListings() {
 				listing.dataset.model = car.model
 				listing.dataset.vin = car.vin
 				listing.style.cursor = 'pointer'
-				const carimage = `/assets/img/vehicles/${imageFileName}/${imageFileName}_0.jpg`
+				const carimage = car.img.split(',')[0];
 				listing.innerHTML = `
 				<div class="team-box">
 					<div class="team-img">

@@ -38,7 +38,7 @@
 	function loadListings() {
 		return new Promise((resolve, reject) => {
 			console.log('Grabbing listings from the database...')
-			fetch(`https://tm.kooshapari.com/listings`)
+			fetch(`/listings`)
 				.then((response) => {
 					if (!response.ok) {
 						throw new Error('Network response was not ok ' + response.statusText)
@@ -59,7 +59,7 @@
 						listing.style.width = '657px !important'
 						listing.classList.add('col-lg-4') // Add the class to the listing element itself
 
-						const carimage = `/assets/img/vehicles/${imageFileName}/${imageFileName}_0.jpg`
+						const carimage = car.img.split(',')[0]
 						listing.innerHTML = `   
 							<div class="project-item">
         <div class="project-img" style="width:595px; height:390px; overflow:hidden; position: relative; display: flex; align-items: center; justify-content: center;">
@@ -92,6 +92,10 @@
 	}
 
 	$(document).ready(function () {
+		$('.slick-slider').slick('refresh')
+		
+		new WOW().init()
+
 		// Initialize the slider after loading the listings
 		loadListings().then(() => {
 			$('.th-carousel').each(function () {

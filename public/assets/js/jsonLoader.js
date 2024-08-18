@@ -155,7 +155,7 @@ function handleFormASubmit(e) {
 	console.log('Finished appending images to FormData') // Log after appending images
 	console.log('FormData image array:', formData.getAll('images'))
 	// Fetch request to the server
-	fetch('https://tm.kooshapari.com/upload', {
+	fetch('http://localhost:3000/upload', {
 		method: 'POST',
 		body: formData,
 	})
@@ -165,7 +165,7 @@ function handleFormASubmit(e) {
 		})
 		.then((data) => {
 			console.log(data)
-			toggleAddCarForm(false) // Hide form on successful submission
+			//toggleAddCarForm(false) // Hide form on successful submission
 		})
 		.catch((error) => console.error('Error:', error))
 }
