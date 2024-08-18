@@ -1,25 +1,22 @@
 {
-	"builds": [
-		{
-			"src": "tmexpress.cjs",
-			"use": "@vercel/node"
-
-		},
-		{
-			"src": "public/assets/**",
-			"use": "@vercel/static"
-		}
-	],
-	"routes": [
-		{
-			"src": "/(.*)",
-			"dest": "/tmexpress.cjs"
-		}
-	],
-	"build": {
-    "env": {
-      "VERCEL_CACHE": "false"
+  "version": 2,
+  "builds": [
+    {
+      "src": "tmexpress.cjs",
+      "use": "@vercel/node"
     },
-   
+    {
+      "src": "public/assets/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/tmexpress.cjs"
+    }
+  ],
+  "env": {
+    "VERCEL_CACHE": "false"
   }
 }
