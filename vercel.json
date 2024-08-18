@@ -2,12 +2,8 @@
 	"builds": [
 		{
 			"src": "tmexpress.cjs",
-			"use": "@vercel/node",
-			      "config": {
-        "includeFiles": [
-          "node_modules/sqlite3/**"
-        ]
-      }
+			"use": "@vercel/node"
+
 		},
 		{
 			"src": "public/assets/**",
