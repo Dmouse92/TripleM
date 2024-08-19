@@ -165,7 +165,7 @@ function handleFormASubmit(e) {
 		})
 		.then((data) => {
 			console.log(data)
-			//toggleAddCarForm(false) // Hide form on successful submission
+			toggleAddCarForm(false) // Hide form on successful submission
 		})
 		.catch((error) => console.error('Error:', error))
 }
