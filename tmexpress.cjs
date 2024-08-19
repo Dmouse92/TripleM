@@ -1,26 +1,28 @@
 const express = require('express')
-const multer = require('multer')
 const sharp = require('sharp')
 const fs = require('fs')
 const path = require('path')
 const cors = require('cors')
 const fsExtra = require('fs-extra')
 const app = express()
+const stream = require('stream')
 const util = require('util')
 const basicAuth = require('basic-auth')
-const pendingDeletions = []
 const bodyParser = require('body-parser')
-const setTimeoutPromise = util.promisify(setTimeout)
-const sqlite3 = require('sqlite3').verbose()
+const fileUpload = require('express-fileupload')
+const cloudinary = require('cloudinary').v2
 const nodemailer = require('nodemailer')
-const storage = multer.diskStorage({
-	destination: function (req, file, cb) {
-		cb(null, path.join(__dirname, '/temp/')) // Temporary storage for processing
-	},
-	filename: function (req, file, cb) {
-		cb(null, file.originalname) // Maintain original file name during processing
-	},
+const { createClient } = require('@supabase/supabase-js');
+const supabaseUrl = 'https://ewpekrrizvktcwrinuqf.supabase.co'
+const supabaseKey =
+	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV3cGVrcnJpenZrdGN3cmludXFmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjQwMTE4NTMsImV4cCI6MjAzOTU4Nzg1M30.WK0mwr53ooz07u5dMgdDv6oeKupUkuR00XoKYj1be54'
+const supabase = createClient(supabaseUrl, supabaseKey)
+cloudinary.config({
+	cloud_name: 'da9bojsxp',
+	api_key: '684617786892636',
+	api_secret: 'judU4-WKa_8p0zYCyEhRYfbargM',
 })
+
 
 // Middleware to protect a route with basic auth
 const authMiddleware = (req, res, next) => {
@@ -45,48 +47,7 @@ const importRouter = require('./routes/import.cjs')
 const aboutRouter = require('./routes/about.cjs')
 const contactRouter = require('./routes/contact.cjs')
 console.log('CUR DIR:::: ', __dirname)
-function scheduleFileDeletion(filePath, delay = 5000) {
-	console.log(`Scheduling deletion for ${filePath} after ${delay}ms`)
-	setTimeout(async () => {
-		try {
-			await fsExtra.emptyDirSync(filePath)
-			console.log('Delayed file deleted successfully:', filePath)
-		} catch (error) {
-			console.error('Failed to delete file in delayed schedule:', filePath, error)
-		}
-	}, delay)
-}
-const upload = multer({ storage: storage })
-// Create a new SQLite database connection
-const db = new sqlite3.Database(path.join(__dirname, 'vehdatabase.sqlite'))
-// Create a table in the database
-db.exec(
-	`CREATE TABLE IF NOT EXISTS vehDB (
-	make TEXT,
-    model TEXT,
-    year INTEGER,
-    price INTEGER,
-    vin TEXT,
-    engine TEXT,
-    transmission TEXT,
-    drive TEXT,
-    mileage INTEGER,
-    exterior TEXT,
-    interior TEXT,
-    fuelEconomy TEXT,
-    features TEXT,
-    comments TEXT,
-    img TEXT,
-    PRIMARY KEY (make, model, vin)
-)`,
-	(err) => {
-		if (err) {
-			console.error('Error creating table', err.message)
-		} else {
-			console.log('Table created successfully')
-		}
-	}
-)
+ 
 // Use routes
 app.use('/', (req, res, next) => {
 	//	console.log('Handling request for /')
@@ -121,13 +82,15 @@ app.set('view engine', 'ejs')
 app.set('views', './public')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(fileUpload())
 app.use(
 	cors({
 		origin: '*', // Or use '*' to allow all origins
 		methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add other methods as per your requirements
-		allowedHeaders: ['Content-Type', 'Authorization'], // Add other headers as per your requirements
+		//allowedHeaders: ['Content-Type', 'Authorization'], // Add other headers as per your requirements
 	})
 )
+app.options('*', cors()) 
 // Set the view engine to EJS
 // Static files
 //app.use(express.static(path.join(__dirname, 'public')))
@@ -139,11 +102,15 @@ app.use((req, res, next) => {
 	next()
 })
 
-app.post('/upload', upload.array('images'), async (req, res) => {
+app.post('/upload', async (req, res) => {
 	console.log('Upload request received')
-	console.log('Request body:', req.body)
-	console.log('Request files:', req.files)
+	//console.log('Request body:', req.body)
+	  if (!req.files || Object.keys(req.files).length === 0) {
+			return res.status(400).send('No files were uploaded.')
+		}
+	//console.log('Request files:', req.files)
 	req.ind = 0 // Reset the index for each new submission
+	 const files = Object.values(req.files.images); // Assuming 'images' is the field name
 	//console.log('CUR FILES: ', req.files)
 	try {
 		const {
@@ -164,88 +131,64 @@ app.post('/upload', upload.array('images'), async (req, res) => {
 		} = req.body
 		// Define dir here
 
-		const dir = path.join(__dirname, '/assets/img/vehicles/', `${make}_${model}_${vin}`)
+		//const dir = path.join(__dirname, '/assets/img/vehicles/', `${make}_${model}_${vin}`)
 		// Ensure the target directory exists
-		await fs.promises.mkdir(dir, { recursive: true })
+		//await fs.promises.mkdir(dir, { recursive: true })
 
 		//console.log('UPLOADED: ', orderedFiles) // This will log the array of uploaded files in the correct order
 
-		const files = req.files
-		// Process and move files
-		for (const file of files) {
-			try {
-				const inputPath = file.path
-				const outputPath = path.join(dir, file.originalname)
+		const files = Array.isArray(req.files.images) ? req.files.images : [req.files.images]
+		console.log('Processing Images...')
 
-				// Resize and crop image
-				await sharp(inputPath)
-					.resize(1024, 1024, { fit: 'cover' })
-					.jpeg({ quality: 90 })
-					.toFile(outputPath)
-
-				// Attempt to delete the temporary file with retries
-				//await retryDelete(inputPath, 3)
-			} catch (err) {
-				console.error('Error processing file:', file.originalname, err)
-			}
-		}
-		//scheduleFileDeletion(path.join(__dirname, '/temp/'), 10000) // Delayed cleanup of temp directory
-
-		// Log the original file paths of all uploaded images
-		/*console.log(
-			'ORIGINAL FILE PATHS:',
-			uniqueFiles.map((file) => file.path)
-		)*/
-		const uniqueFiles = Array.from(new Set(req.files.map((file) => file.originalname))).map(
-			(name) => {
-				return req.files.find((file) => file.originalname === name)
-			}
-		)
-		// Process images and move them after processing
+		// Process and upload images directly to Cloudinary
 		const processedFiles = await Promise.all(
-			uniqueFiles.map(async (file) => {
-				const inputPath = file.path
-				const outputPath = path.join(dir, `${file.originalname.split('.')[0]}.jpg`)
-				//console.log('IN: ', inputPath, 'OUT: ', outputPath)
-				//const outputPath = path.join(dir, file.originalname)
-				// Resize and crop image
-				await sharp(inputPath)
-					.resize(1024, 1024, { fit: 'cover' })
-					.toFormat('jpeg')
-					.jpeg({ quality: 90 })
-					.toFile(outputPath)
+			files.map(async (file, index) => {
+				try {
+					// Process the image in memory
+					const processedImageBuffer = await sharp(file.data)
+						.resize(1024, 1024, { fit: 'cover' })
+						.jpeg({ quality: 90 })
+						.toBuffer()
 
-				// Delete the original file from temp after processing
-				//	scheduleFileDeletion(inputPath)
-				const outPath = path.posix.join(
-					'/assets/img/vehicles/',
-					`${make}_${model}_${vin}`,
-					`${file.originalname.split('.')[0]}.jpg`
-				)
-				return outPath
+					// Upload the processed image buffer directly to Cloudinary
+					const uploadResult = await new Promise((resolve, reject) => {
+						const uploadStream = cloudinary.uploader.upload_stream(
+							{
+								folder: `vehicles/${make}_${model}_${vin}`,
+								public_id: `${index}`,
+								format: 'jpg',
+							},
+							(error, result) => {
+								if (error) {
+									console.error('Error uploading to Cloudinary:', error)
+									reject(error)
+								} else {
+									resolve(result)
+								}
+							}
+						)
+
+						const readableStream = require('stream').Readable.from(processedImageBuffer)
+						readableStream.pipe(uploadStream)
+					})
+
+					// Return the Cloudinary URL
+					return uploadResult.secure_url
+				} catch (error) {
+					console.error('Error processing image:', error)
+					throw new Error('Failed to process and upload image')
+				}
 			})
 		)
 
-		req.files.forEach((file) => {
-			if (!uniqueFiles.find((uniqueFile) => uniqueFile.path === file.path)) {
-				fs.unlink(file.path, (err) => {
-					if (err) {
-						console.error('Failed to delete duplicate file', err)
-					} else {
-						console.log('Duplicate file deleted successfully')
-					}
-				})
-			}
-		})
-
+		// Join the Cloudinary URLs into a single string separated by commas (if multiple images)
 		const imgPath = processedFiles.join(',')
-		scheduleFileDeletion(path.join(__dirname, '/temp/'), 10000) // Delayed cleanup of temp directory
-		db.serialize(() => {
-			console.log('Preparing to insert data into the cars table')
+		console.log('Processed.')
+		console.log('Beginning Database Insertion...')
 
-			// Ensure that your variables make, model, year, price, etc. are defined with correct values here
-			console.log(
-				'Data to be inserted:',
+		// Insert data into Supabase
+		const { data, error } = await supabase.from('Vehicles').insert([
+			{
 				make,
 				model,
 				year,
@@ -260,111 +203,106 @@ app.post('/upload', upload.array('images'), async (req, res) => {
 				features,
 				comments,
 				vin,
-				imgPath
-			)
+				img: imgPath,
+			},
+		])
 
-			const stmt = db.prepare(`INSERT INTO vehDB (
-    make, model, year, price, mileage, engine, transmission, drive, exterior, interior, fuelEconomy, features, comments, vin, img
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
+		if (error) throw error
 
-			stmt.run(
-				make,
-				model,
-				year,
-				price,
-				mileage,
-				engine,
-				transmission,
-				drive,
-				exterior,
-				interior,
-				fuelEconomy,
-				features,
-				comments,
-				vin,
-				imgPath
-			)
-
-			stmt.finalize()
-
-			console.log('Data inserted into the cars table successfully')
-		})
-
-		res.json({ message: 'Data inserted into SQLite database' })
+		console.log('Data inserted into Supabase database successfully')
+		res.json({ message: 'Data inserted into Supabase database' })
 	} catch (err) {
 		console.error(err)
 		res.status(500).send('An error occurred on the server.')
+	} finally {
+		// No need to clean up local files since we're not using the filesystem
+		console.log('Form submission completed.')
 	}
 })
-
-app.get('/listings', (req, res) => {
+		
+app.get('/listings', async (req, res) => {
 	// Connect to your SQLite database and fetch listings
 	// Respond with JSON data
+	console.log("Fetching Listings...")
+ try {
+    const { data, error } = await supabase
+      .from('Vehicles') // Assuming your table is named 'Vehicles'
+      .select('*');
 
-	db.all('SELECT * FROM vehDB', [], (err, rows) => {
-		if (err) {
-			res.status(500).send('An error occurred on the server.')
-			throw err
-		}
-		res.json({ cars: rows })
+    if (error) {
+      console.error('Error fetching listings:', error);
+      return res.status(500).send('An error occurred on the server.');
+    }
 
-		//console.log(res.json.toString())
-	})
-})
+    res.json({ cars: data });
+  } catch (err) {
+    console.error('Unexpected error:', err);
+    res.status(500).send('An unexpected error occurred on the server.');
+  }
+});
 // Route to handle individual car details
-app.get('/cars/:make/:model/:vin', (req, res) => {
+app.get('/cars/:make/:model/:vin', async (req, res) => {
+	console.log("Pulling Listing...")
 	// Extract make, model, and vin from the request parameters
 	const { make, model, vin } = req.params
 
 	// Query the database for the specific car details using the make, model, and vin
-	db.get(
-		'SELECT * FROM vehDB WHERE make = ? AND model = ? AND vin = ?',
-		[make, model, vin],
-		(err, row) => {
-			if (err) {
-				// Handle database errors
-				res.status(500).send('An error occurred on the server.')
-				console.error(err)
-			} else if (row) {
-				// Render the EJS page with the car data and the image URLs
-				res.render('product', {
-					year: row.year,
-					make: row.make,
-					model: row.model,
-					price: row.price,
-					mileage: row.mileage,
-					engine: row.engine,
-					transmission: row.transmission,
-					drive: row.drive,
-					exterior: row.exterior,
-					interior: row.interior,
-					fuelEconomy: row.fuelEconomy,
-					features: row.features,
-					comments: row.comments,
-					vin: row.vin,
-					img: row.img,
-				})
-			} else {
-				// Handle case when no car is found
-				res.status(404).send('Car not found')
-			}
-		}
-	)
+	 try {
+    const { data, error } = await supabase
+      .from('Vehicles') // Assuming your table is named 'Vehicles'
+      .select('*')
+      .eq('make', make)
+      .eq('model', model)
+      .eq('vin', vin)
+      .single();
+
+    if (error) {
+      console.error('Error fetching car details:', error);
+      return res.status(500).send('An error occurred on the server.');
+    }
+
+    if (!data) {
+      return res.status(404).send('Car not found');
+    }
+
+    res.render('product', {
+      year: data.year,
+      make: data.make,
+      model: data.model,
+      price: data.price,
+      mileage: data.mileage,
+      engine: data.engine,
+      transmission: data.transmission,
+      drive: data.drive,
+      exterior: data.exterior,
+      interior: data.interior,
+      fuelEconomy: data.fuelEconomy,
+      features: data.features,
+      comments: data.comments,
+      vin: data.vin,
+      img: data.img,
+    });
+  } catch (err) {
+    console.error('Unexpected error:', err);
+    res.status(500).send('An unexpected error occurred on the server.');
+	 }
+	console.log("Loaded Listing.")
 })
 // Handle form submission
+/*
 app.post('/send-email', (req, res) => {
     const { name, email, subject, message } = req.body;
 
     // Create a transporter object using SMTP transport
-    const transporter = nodemailer.createTransport({
-        host: 'smtp.yourdomain.com', // Replace with your SMTP server
-        port: 587, // Replace with your SMTP port
-        secure: false, // true for 465, false for other ports
-        auth: {
-            user: 'your-email@yourdomain.com', // Replace with your email
-            pass: 'your-email-password' // Replace with your email password
-        }
-    });
+const transporter = nodemailer.createTransport({
+	host: 'smtp.gmail.com', // SMTP server for Gmail
+	port: 587, // Port for TLS/STARTTLS
+	secure: false, // true for 465, false for other ports
+	auth: {
+		user: 'dmouse188@gmail.com', // Your Gmail address
+		pass: 'your-email-password', // Your Gmail app password or OAuth2 token
+	},
+})
 
     // Email options
     const mailOptions = {
@@ -382,13 +320,14 @@ app.post('/send-email', (req, res) => {
         }
         res.status(200).send('Email sent: ' + info.response);
     });
-});
+});*/
 app.use(
 	express.static(path.join(__dirname, 'public'), {
 		setHeaders: (res, path) => {
 			if (path.endsWith('.js')) {
 				res.set('Content-Type', 'application/javascript')
-			} else if (path.endsWith('.css')) {
+			}
+			else if (path.endsWith('.css')) {
 				res.set('Content-Type', 'text/css')
 			} else if (path.endsWith('.svg')) {
 				res.set('Content-Type', 'image/svg+xml')

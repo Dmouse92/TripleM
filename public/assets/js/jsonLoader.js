@@ -155,7 +155,7 @@ function handleFormASubmit(e) {
 	console.log('Finished appending images to FormData') // Log after appending images
 	console.log('FormData image array:', formData.getAll('images'))
 	// Fetch request to the server
-	fetch('https://tm.kooshapari.com/upload', {
+	fetch('https://www.triplemimports.com/upload', {
 		method: 'POST',
 		body: formData,
 	})
